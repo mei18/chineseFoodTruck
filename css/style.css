@@ -1,0 +1,27 @@
+
+canvas {
+    position: absolute;
+    /*border: solid 1px blue;*/
+    width: 100%;
+    height: auto;
+
+      background: rgba(212,228,239,1);
+    background: -moz-linear-gradient(45deg, rgba(212,228,239,1) 0%, rgba(22,37,97,1) 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(212,228,239,1)), color-stop(100%, rgba(22,37,97,1)));
+    background: -webkit-linear-gradient(45deg, rgba(212,228,239,1) 0%, rgba(22,37,97,1) 100%);
+    background: -o-linear-gradient(45deg, rgba(212,228,239,1) 0%, rgba(22,37,97,1) 100%);
+    background: -ms-linear-gradient(45deg, rgba(212,228,239,1) 0%, rgba(22,37,97,1) 100%);
+    background: linear-gradient(45deg, rgba(212,228,239,1) 0%, rgba(22,37,97,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d4e4ef', endColorstr='#162561', GradientType=1 );
+
+}
+/*div {
+  background-color: black;
+}
+p {
+  color: white;
+}
+
+#b {
+  opacity: 0.5;
+}*/
