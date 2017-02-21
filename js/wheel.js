@@ -10,7 +10,7 @@ function Wheel(position, context) {
 }
 
 Wheel.prototype.update = function () {
-    this.degree += 2;
+    this.degree += 5;
     this.render();
 }
 

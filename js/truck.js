@@ -11,8 +11,8 @@ function Truck(position, context) {
         return new Truck(position, context);
     }
 
-    this.topColor = '#E3000E';
-    this.bottomColor = '#E3000E';
+    this.topColor = '#CC0000';
+    this.bottomColor = '#CC0000';
     this.windowColor = '#454545';
     this.color1 = '#FEC606';
     this.color2 = 'white';
