@@ -19,6 +19,7 @@ function init() {
     image.addEventListener('load', function () {
         // execute drawImage statements here
         let house = House(Vector(0,100), image, context);
+        // mover en el arreglo, para convertirse en la primera imagen
         pool.splice(0, 0, house);
     }, false);
 
@@ -29,6 +30,7 @@ function init() {
     image2.addEventListener('load', function () {
         // execute drawImage statements here
         let house = House(Vector(1600, 90), image2, context);
+        // mover en el arreglo, para convertirse en la primera imagen
         pool.splice(0, 0, house);
 
     }, false);
@@ -39,11 +41,10 @@ function init() {
     image3.addEventListener('load', function () {
         // execute drawImage statements here
         let house = House(Vector(800, 100), image3, context);
+        // mover en el arreglo, para convertirse en la primera imagen
         pool.splice(0, 0, house);
 
     }, false);
-
-
 
 
     let street = Street(Vector(0, 590), context);
@@ -57,7 +58,7 @@ function init() {
     resizeCanvas();
 
     function resizeCanvas() {
-      //no es necesario
+      //hubicarlo en el centro
       truck.position.x = canvas.width/2 - 180;
       truck.wheell.position.x = truck.position.x + 80;
       truck.wheelr.position.x = truck.position.x + 290;
@@ -74,14 +75,9 @@ function init() {
             object.update();
         }, this);
 
-
-
-
-
         requestAnimationFrame(update)
     }
 
     update();
-
 
 }

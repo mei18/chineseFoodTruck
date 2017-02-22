@@ -24,17 +24,16 @@ function Truck(position, context) {
     this.velocity = Vector(0, 0);
 
     //Wheel Left
-    //this.wlpos = Vector(this.position.x + 60, this.position.y + 170);
     this.wheell = Wheel(Vector(this.position.x + 80, this.position.y + 170), this.context);
 
     //Wheel Right
-    //this.wrpos = Vector(this.position.x + 215, this.position.y + 170);
     this.wheelr = Wheel(Vector(this.position.x + 290, this.position.y + 170), this.context);
-
+    //Red Lamp
     this.lamp = Lamp(Vector(this.position.x - 30, this.position.y + 15), this.context);
 }
 
 Truck.prototype.update = function () {
+    //add velocity
     this.position.add(this.velocity);
     this.render();
 
@@ -44,7 +43,7 @@ Truck.prototype.update = function () {
 }
 
 Truck.prototype.render = function () {
-
+  //Top background
   this.context.beginPath();
   this.context.fillStyle = 'White';
   this.context.globalAlpha = 0.7;
@@ -65,10 +64,12 @@ Truck.prototype.render = function () {
     hline = Line(Vector(this.position.x + 42, this.position.y - 10), Vector(this.position.x + 44, this.position.y - 5), 4, 'round', 'black', this.context);
 
     //Dibujar comida
-    //fideos
+
+    //Top Chupsticks
     let chUpR = Line(Vector(this.position.x - 10, this.position.y - 120), Vector(this.position.x + 80, this.position.y - 70), 7, 'round', this.bottomColor, this.context);
     let chUpB = Line(Vector(this.position.x - 2, this.position.y - 116), Vector(this.position.x + 27, this.position.y - 99), 7, 'round', "black", this.context);
 
+    //rice
     this.context.fillStyle = this.color3;
     this.context.beginPath();
     this.context.arc(this.position.x + 120, this.position.y - 50, 47, 3.2, Math.PI * 2, false);
@@ -138,9 +139,11 @@ Truck.prototype.render = function () {
     this.context.closePath();
     this.context.stroke();
 
+    //Down Chupsticks
     let chDwR = Line(Vector(this.position.x - 20, this.position.y - 90), Vector(this.position.x + 80, this.position.y - 60), 7, 'round', this.bottomColor, this.context);
     let chDwB = Line(Vector(this.position.x - 10, this.position.y - 87), Vector(this.position.x + 20, this.position.y - 78), 7, 'round', "black", this.context);
 
+    //plate
     this.context.fillStyle = '#199EC7';
     this.context.beginPath();
     this.context.arc(this.position.x + 120, this.position.y - 63, 58, 0, Math.PI, false);
@@ -148,6 +151,7 @@ Truck.prototype.render = function () {
     this.context.fill();
 
     let plateBase = RoundRect(Vector(this.position.x + 100, this.position.y - 07), 38, 10, 5, this.color1, this.context);
+
     //dim sum
     this.context.strokeStyle = '#DC9855';
     this.context.fillStyle = this.color3;
@@ -309,11 +313,10 @@ Truck.prototype.render = function () {
     this.context.closePath();
     this.context.fill();
 
-
+    //Textos
     this.context.font = "20px Merienda One, cursive";
     this.context.fillStyle = "White";
     this.context.fillText("Chinese Food", this.position.x + 30, 645);
-
 
     this.context.font = "20px Merienda One, cursive";
     this.context.fillStyle = "White";

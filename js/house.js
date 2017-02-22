@@ -9,6 +9,7 @@ function House(position, img, context) {
 }
 
 House.prototype.update = function () {
+    // agregar la velocidad
     this.position.add(this.velocity);
     this.checkBounderies();
     this.render();
@@ -19,6 +20,7 @@ House.prototype.render = function () {
 }
 
 House.prototype.checkBounderies = function () {
+    //toma el ancho de la imagen y lo devuelve
     if (this.position.x < -500) {
         this.position.x = window.innerWidth;
     }

@@ -11,7 +11,7 @@ function Lamp(position, context) {
 }
 
 Lamp.prototype.update = function () {
-
+    //movimiento a la derecha (se hace un angulo para saber que tanto se doble o se mueve)
     if (this.isMovingRight) {
         if (this.angle > -10) {
             this.angle -= 0.1;
@@ -20,7 +20,7 @@ Lamp.prototype.update = function () {
             this.isMovingLeft = true;
         }
     }
-
+    //movimiento a la izquierda
     if (this.isMovingLeft) {
         if (this.angle < 10) {
             this.angle += 0.1;
@@ -37,6 +37,7 @@ Lamp.prototype.render = function () {
 
     this.context.translate(this.position.x -5, this.position.y);
     this.context.rotate(toRadians(this.angle));
+    //Lineas
     let lineBg = Line(Vector(0, 0), Vector(0, 105), 2, 'round', '#1b2d3d', this.context);
     let topRed = Line(Vector(-10, 50), Vector(10, 50), 5, 'round', '#CF000F', this.context);
 
