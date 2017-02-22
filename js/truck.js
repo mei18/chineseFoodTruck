@@ -11,8 +11,8 @@ function Truck(position, context) {
         return new Truck(position, context);
     }
 
-    this.topColor = '#CC0000';
-    this.bottomColor = '#CC0000';
+    this.topColor = '#B30802';
+    this.bottomColor = '#B30802';
     this.windowColor = '#454545';
     this.color1 = '#FEC606';
     this.color2 = 'white';
@@ -31,7 +31,7 @@ function Truck(position, context) {
     //this.wrpos = Vector(this.position.x + 215, this.position.y + 170);
     this.wheelr = Wheel(Vector(this.position.x + 290, this.position.y + 170), this.context);
 
-    this.lamp = Lamp(Vector(this.position.x - 30, this.position.y + 15), context);
+    this.lamp = Lamp(Vector(this.position.x - 30, this.position.y + 15), this.context);
 }
 
 Truck.prototype.update = function () {
@@ -45,15 +45,24 @@ Truck.prototype.update = function () {
 
 Truck.prototype.render = function () {
 
+  this.context.beginPath();
+  this.context.fillStyle = 'White';
+  this.context.globalAlpha = 0.7;
+  this.context.moveTo(this.position.x,this.position.y);
+  this.context.fillRect(this.position.x - 780,this.position.y - 550,1950,620);
+  this.context.globalAlpha = 1.0;
+  this.context.fill();
+  this.context.closePath();
+
     //Decoración de atrás
     let stop = Line(Vector(this.position.x, this.position.y + 15), Vector(this.position.x - 32, this.position.y + 15), 8, 'round', '#1b2d3d', this.context);
     let stopBg = Line(Vector(this.position.x, this.position.y + 12), Vector(this.position.x, this.position.y + 20), 8, 'round', '#1b2d3d', this.context);
 
     //Calentador de arriba.
-    let hline = Line(Vector(this.position.x + 33, this.position.y), Vector(this.position.x + 65, this.position.y), 34, 'round', 'black', this.context);
-    hline = Line(Vector(this.position.x + 30, this.position.y - 10), Vector(this.position.x + 32, this.position.y - 5), 4, 'round', this.color1, this.context);
-    hline = Line(Vector(this.position.x + 36, this.position.y - 10), Vector(this.position.x + 38, this.position.y - 5), 4, 'round', this.color1, this.context);
-    hline = Line(Vector(this.position.x + 42, this.position.y - 10), Vector(this.position.x + 44, this.position.y - 5), 4, 'round', this.color1, this.context);
+    let hline = Line(Vector(this.position.x + 33, this.position.y), Vector(this.position.x + 65, this.position.y), 34, 'round', 'White', this.context);
+    hline = Line(Vector(this.position.x + 30, this.position.y - 10), Vector(this.position.x + 32, this.position.y - 5), 4, 'round', 'black', this.context);
+    hline = Line(Vector(this.position.x + 36, this.position.y - 10), Vector(this.position.x + 38, this.position.y - 5), 4, 'round', 'black', this.context);
+    hline = Line(Vector(this.position.x + 42, this.position.y - 10), Vector(this.position.x + 44, this.position.y - 5), 4, 'round', 'black', this.context);
 
     //Dibujar comida
     //fideos
@@ -132,7 +141,7 @@ Truck.prototype.render = function () {
     let chDwR = Line(Vector(this.position.x - 20, this.position.y - 90), Vector(this.position.x + 80, this.position.y - 60), 7, 'round', this.bottomColor, this.context);
     let chDwB = Line(Vector(this.position.x - 10, this.position.y - 87), Vector(this.position.x + 20, this.position.y - 78), 7, 'round', "black", this.context);
 
-    this.context.fillStyle = '#00587A';
+    this.context.fillStyle = '#199EC7';
     this.context.beginPath();
     this.context.arc(this.position.x + 120, this.position.y - 63, 58, 0, Math.PI, false);
     this.context.closePath();
@@ -207,7 +216,7 @@ Truck.prototype.render = function () {
     let salesWindow = RoundRect(Vector(this.position.x + 20, this.position.y + 20), 150, 80, 5, this.windowColor, this.context);
 
     //Base de la ventana de ventas
-    let salesWindowBottom = RoundRect(Vector(this.position.x + 15, this.position.y + 85), 160, 15, 5, this.color1, this.context);
+    let salesWindowBottom = RoundRect(Vector(this.position.x + 15, this.position.y + 85), 160, 15, 5, "White", this.context);
 
     //Lineas de negra base el carro
     let line = Line(Vector(this.position.x, this.position.y + 170), Vector(this.position.x + 355, this.position.y + 170), 8, 'round', 'black', this.context);
@@ -299,6 +308,71 @@ Truck.prototype.render = function () {
     this.context.arc(this.position.x + 290, this.position.y + 170, 35, Math.PI, Math.PI * 2, false);
     this.context.closePath();
     this.context.fill();
+
+
+    this.context.font = "20px Merienda One, cursive";
+    this.context.fillStyle = "White";
+    this.context.fillText("Chinese Food", this.position.x + 30, 645);
+
+
+    this.context.font = "20px Merienda One, cursive";
+    this.context.fillStyle = "White";
+    this.context.fillText("中国", this.position.x + 197, 655);
+
+    this.context.font = "50px Shadows Into Light Two, cursive";
+    this.context.fillStyle = "#F31D2F";
+    this.context.fillText("Food Truck Festival", this.position.x, 100);
+
+    this.context.font = "50px Shadows Into Light Two, cursive";
+    this.context.fillStyle = "#F31D2F";
+    this.context.fillText("8:00 PM", this.position.x +95, 330);
+
+    this.context.font = "50px Shadows Into Light Two, cursive";
+    this.context.fillStyle = "#F31D2F";
+    this.context.fillText("Friday,Dic 1", this.position.x + 70, 220);
+
+    this.context.font = "30px Quicksand, sans-serif";
+    this.context.fillStyle = "White";
+    this.context.fillText("MENU", this.position.x +120, 800);
+
+    this.menu = Rectangle(Vector(this.position.x - 85, this.position.y +310), 528, 150, false, '#', true, 'White', 3, this.context);
+
+    this.context.font = "20px Quicksand, sans-serif";
+    this.context.fillStyle = "White";
+    this.context.fillText("Sweet & sour pork", this.position.x - 70, 880);
+
+    this.context.font = "20px Quicksand, sans-serif";
+    this.context.fillStyle = "White";
+    this.context.fillText("Dim Sum", this.position.x - 70, 910);
+
+    this.context.font = "20px Quicksand, sans-serif";
+    this.context.fillStyle = "White";
+    this.context.fillText("Chicken+Ginger Oil", this.position.x - 70, 940);
+
+    this.context.font = "20px Quicksand, sans-serif";
+    this.context.fillStyle = "White";
+    this.context.fillText("Bubble Tea", this.position.x + 130, 880);
+
+    this.context.font = "20px Quicksand, sans-serif";
+    this.context.fillStyle = "White";
+    this.context.fillText("Grass jelly", this.position.x + 130, 910);
+
+    this.context.font = "20px Quicksand, sans-serif";
+    this.context.fillStyle = "White";
+    this.context.fillText("Jia Duo Bao", this.position.x + 130, 940);
+
+    this.context.font = "20px Quicksand, sans-serif";
+    this.context.fillStyle = "White";
+    this.context.fillText("Sago coconut fruit", this.position.x + 260, 880);
+
+    this.context.font = "20px Quicksand, sans-serif";
+    this.context.fillStyle = "White";
+    this.context.fillText("Tan tat", this.position.x + 260, 910);
+
+    this.context.font = "20px Quicksand, sans-serif";
+    this.context.fillStyle = "White";
+    this.context.fillText("Tangyuan", this.position.x + 260, 940);
+
 }
 
 function ShapePoint(p, cr) {

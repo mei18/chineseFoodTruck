@@ -9,10 +9,10 @@ function Street(position, context) {
     this.color1 = 'black';
     this.lines = [];
 
-    this.backgound = Rectangle(Vector(this.position.x, this.position.y +90), window.innerWidth, 300, true, 'gray', false, 'none', 0, this.context);
+    this.backgound = Rectangle(Vector(this.position.x, this.position.y), window.innerWidth, 430, true, '#60646D', false, 'none', 0, this.context);
 
     for (var index = 0; index < window.innerWidth; index += randomBtween(100, 150)) {
-        let line = Rectangle(Vector(this.position.x + index, this.position.y + 210), randomBtween(60, 100), 10, true, 'white', false, 'none', 0, this.context);
+        let line = Rectangle(Vector(this.position.x + index, this.position.y + 150), randomBtween(60, 100), 10, true, 'white', false, 'none', 0, this.context);
         this.lines.push(line);
     }
 }

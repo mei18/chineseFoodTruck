@@ -18,7 +18,7 @@ function init() {
 
     image.addEventListener('load', function () {
         // execute drawImage statements here
-        let house = House(Vector(100, 200), image, context);
+        let house = House(Vector(0,100), image, context);
         pool.splice(0, 0, house);
     }, false);
 
@@ -28,7 +28,7 @@ function init() {
 
     image2.addEventListener('load', function () {
         // execute drawImage statements here
-        let house = House(Vector(1500, 190), image2, context);
+        let house = House(Vector(1600, 90), image2, context);
         pool.splice(0, 0, house);
 
     }, false);
@@ -38,7 +38,7 @@ function init() {
 
     image3.addEventListener('load', function () {
         // execute drawImage statements here
-        let house = House(Vector(800, 200), image3, context);
+        let house = House(Vector(800, 100), image3, context);
         pool.splice(0, 0, house);
 
     }, false);
@@ -46,11 +46,26 @@ function init() {
 
 
 
-    let street = Street(Vector(0, 600), context);
+    let street = Street(Vector(0, 590), context);
     pool.push(street);
 
-    let truck = Truck(Vector(200, 600), context);
+    let truck = Truck(Vector(canvas.width / 2 - 115, 520), context);
     pool.push(truck);
+
+    window.addEventListener('resize', resizeCanvas, false);
+    window.addEventListener('orientationchange', resizeCanvas, false);
+    resizeCanvas();
+
+    function resizeCanvas() {
+      //no es necesario
+      truck.position.x = canvas.width/2 - 180;
+      truck.wheell.position.x = truck.position.x + 80;
+      truck.wheelr.position.x = truck.position.x + 290;
+      truck.lamp.position.x = truck.position.x - 30;
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
 
     function update() {
         context.clearRect(0, 0, width, height);
@@ -58,6 +73,10 @@ function init() {
         pool.forEach(function (object) {
             object.update();
         }, this);
+
+
+
+
 
         requestAnimationFrame(update)
     }
